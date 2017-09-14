@@ -12,12 +12,13 @@ function app() {
     var select = document.getElementById('country-drop-down');
     
     select.addEventListener('change', function() {
-        console.log(restCountries.data);
         var selectedCountry = this.value;
         var ul = document.getElementById('country-data');
+        
         while(ul.firstChild) {
             ul.removeChild(ul.firstChild);
           }
+          
         var li = document.createElement('li');
         li.innerText = 'Country: ' + restCountries.data[selectedCountry].name;
         ul.appendChild(li);
@@ -25,8 +26,10 @@ function app() {
         li.innerText = 'Capital: ' + restCountries.data[selectedCountry].capital;
         ul.appendChild(li);
         var li = document.createElement('li');
-        var li = document.createElement('li');
         li.innerText = 'Region: ' + restCountries.data[selectedCountry].region;
+        ul.appendChild(li);
+        var li = document.createElement('li');
+        li.innerText = 'Main Currency: ' + restCountries.data[selectedCountry].currencies[0].name;
         ul.appendChild(li);
     })
  
